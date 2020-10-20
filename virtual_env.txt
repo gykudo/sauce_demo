@@ -1,0 +1,3 @@
+    - Editor: pycharm/VS/Sublime 3
+    - Library: selenium
+#### Guide to install selenium in python ####
