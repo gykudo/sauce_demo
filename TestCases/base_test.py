@@ -3,7 +3,6 @@ import unittest
 import os
 
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from TestData.TestData import TestData
 
 sys.path.append(".")
@@ -19,8 +18,8 @@ class BaseTest(unittest.TestCase):
 
   @classmethod
   def tearDown(self):
+    self.driver.close()
     try:
-      self.driver.close()
       self.driver.quit()
     except Exception as msg:
       print("message: %s" % str(msg))
