@@ -1,8 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 import logging
+
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage(object):
@@ -11,6 +11,8 @@ class BasePage(object):
   def __init__(self, driver):
     self.driver = driver
     self.timeout = 30
+    self.driver.implicitly_wait(30)
+    self.driver.maximize_window()
     logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
   def navigate_to(self, url):
@@ -79,6 +81,13 @@ class BasePage(object):
     logging.info(message.format(element.text, ','.join(by_locator)))
 
     return element.text
+
+  def get_elements_size(self, by_locator):
+    message = "Get broken image from {}"
+    logging.info(message.format(','.join(by_locator)))
+    WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    elements = self.driver.find_elements(*by_locator)
+    return len(elements)
 
   def close_browser(self):
     self.driver.close()

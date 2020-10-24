@@ -1,8 +1,9 @@
+import os
 import sys
 import unittest
-import os
 
 from selenium import webdriver
+
 from TestData.TestData import TestData
 
 sys.path.append(".")

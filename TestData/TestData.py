@@ -1,6 +1,6 @@
 class TestData():
   BASEURL = "https://www.saucedemo.com/index.html"
-  BROWSER = "Chrome"
+  BROWSER = "Firefox"
   USERNAME = "standard_user"
   USERNAME1 = "locked_out_user"
   USERNAME2 = "problem_user"
