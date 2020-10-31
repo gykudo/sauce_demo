@@ -4,10 +4,10 @@ sys.path.append(".")
 import unittest
 from TestCases.base_test import BaseTest
 from Pages.login_page import LoginPage
-from Pages.product_page import ProductPage
+from Pages.products_page import ProductsPage
 from TestData.TestData import TestData
 from Objects.account import Account
-from Locators.product_page_locator import ProductPageLocator
+from Locators.products_page_locator import ProductPageLocator
 
 
 class TestLogin(BaseTest):
@@ -23,14 +23,14 @@ class TestLogin(BaseTest):
     login_page = LoginPage(self.driver)
     account = Account(TestData.USERNAME1, TestData.PASSWORD)
     login_page.login(account)
-    self.assertIn("Sorry, this user has been locked out.", login_page.get_message())
+    self.assertIn("Sorry, this user has been locked out.", login_page.get_err_message())
 
   @unittest.SkipTest
   def test_login_performance_account(self):
     login_page = LoginPage(self.driver)
     account = Account(TestData.USERNAME3, TestData.PASSWORD)
     login_page.login(account)
-    product_item = ProductPage(self.driver)
+    product_item = ProductsPage(self.driver)
     product_item.check_product_existed()
 
   @unittest.SkipTest
@@ -45,19 +45,19 @@ class TestLogin(BaseTest):
     self.assertEqual(0, total, message)
     product_item.get_product_info(5)
 
-  #@unittest.SkipTest
+  # @unittest.SkipTest
   def test_login_standard_account(self):
     # with open(list_account.json) as
     login_page = LoginPage(self.driver)
     account = Account(TestData.USERNAME, TestData.PASSWORD)
     login_page.login(account)
-    product_item = ProductPage(self.driver)
-    total = product_item.get_broken_img()
+    product_page = ProductsPage(self.driver)
+    total = product_page.get_broken_img()
     message = "There has '%s' broken images." % total
     self.assertEqual(0, total, message)
     product_list = []
     for i in range(0, 6):
-      product_list.append(product_item.get_product_info(1).__str__())
+      product_list.append(product_page.get_product_info(1).__str__())
     print(product_list)
 
 

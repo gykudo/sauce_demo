@@ -6,4 +6,4 @@ class Product():
     self.quantity = quantity
 
   def __str__(self):
-    return "name is '%s', description is '%s', price is '%s'" % (self.name, self.desc, self.price)
+    return "Product name: '%s', Description: '%s', Price: '%s'" % (self.name, self.desc, self.price)

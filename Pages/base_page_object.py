@@ -56,7 +56,8 @@ class BasePage(object):
     message = "Check the element with the locator '{}' is enabled or not"
     logging.info(message.format(','.join(by_locator)))
 
-    return WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    return element.is_enabled()
 
   # this function checks if the web element whose locator has been passed to it, is visible or not and returns
   # true or false depending upon its visibility.
@@ -65,6 +66,27 @@ class BasePage(object):
     logging.info(message.format(','.join(by_locator)))
 
     element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    return element.is_displayed()
+
+  def is_invisible(self, by_locator):
+    message = "Check the element with the locator '{}' is visible or not"
+    logging.info(message.format(','.join(by_locator)))
+
+    flag = False
+    try:
+      element = self.driver.find_element(by_locator)
+      element.is_displayed()
+    except:
+      flag = True
+      pass
+
+    return flag
+
+  def is_present(self, by_locator):
+    message = "Check the element with the locator '{}' is present or not"
+    logging.info(message.format(','.join(by_locator)))
+
+    element = WebDriverWait(self.driver, self.timeout).until(EC.text_to_be_present_in_element(by_locator))
     return bool(element)
 
   # this function moves the mouse pointer over a web element whose locator has been passed to it.

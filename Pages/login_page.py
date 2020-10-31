@@ -9,19 +9,10 @@ class LoginPage(BasePage):
     super().__init__(driver)
     self.navigate_to(TestData.BASEURL)
 
-  def login(self, account):
-    self.enter_username(account.username)
-    self.enter_password(account.password)
-    self.click_login_button()
-
-  def enter_username(self, username):
+  def login(self, username, password):
     self.enter_text(LoginPageLocators.INPUT_USERNAME, username)
-
-  def enter_password(self, password):
     self.enter_text(LoginPageLocators.INPUT_PASSWORD, password)
-
-  def click_login_button(self):
     self.click(LoginPageLocators.BUTTON_LOGIN)
 
-  def get_message(self):
-    return self.get_text(LoginPageLocators.LABEL_MESSAGE)
+  def get_err_message(self):
+    return self.get_text(LoginPageLocators.ERR_MESS_LBL)
