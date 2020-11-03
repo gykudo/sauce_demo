@@ -26,7 +26,8 @@ class BasePage(object):
     message = "Click on the element with locator '{}'"
     logging.info(message.format(','.join(by_locator)))
 
-    WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator)).click()
+    element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    element.click()
 
   # this function asserts comparison of a web element's text with passed in text.
   def assert_element_text_equal(self, by_locator, element_text):
@@ -66,7 +67,9 @@ class BasePage(object):
     logging.info(message.format(','.join(by_locator)))
 
     element = WebDriverWait(self.driver, self.timeout).until(EC.visibility_of_element_located(by_locator))
+    print('abc', element.is_displayed())
     return element.is_displayed()
+
 
   def is_invisible(self, by_locator):
     message = "Check the element with the locator '{}' is visible or not"

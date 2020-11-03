@@ -11,7 +11,7 @@ class ProductsPage(BasePage):
   def get_product_badge(self):
     total = 0
     try:
-      total = self.get_product_badge(ProductsPageLocator.SHOPPINNG_CART_LABEL)
+      total = self.get_text(ProductsPageLocator.SHOPPING_CART_LABEL)
     except Exception:
       pass
     return int(total)
@@ -32,13 +32,16 @@ class ProductsPage(BasePage):
     self.click(ProductsPageLocator.PRODUCT_ADD_BUTTON(index))
 
   def does_add_button_exist(self, index):
-    self.is_visible(ProductsPageLocator.PRODUCT_ADD_BUTTON(index))
+    return self.is_visible(ProductsPageLocator.PRODUCT_ADD_BUTTON(index))
 
   def remove_product_from_cart(self, index):
     self.click(ProductsPageLocator.PRODUCT_REMOVE_BUTTON(index))
 
   def does_remove_button_exist(self, index):
-    self.is_visible(ProductsPageLocator.PRODUCT_REMOVE_BUTTON(index))
+    return self.is_visible(ProductsPageLocator.PRODUCT_REMOVE_BUTTON(index))
 
   def is_product_badge_invisible(self):
-    return self.is_invisible(ProductsPageLocator.SHOPPINNG_CART_LABEL)
+    return self.is_invisible(ProductsPageLocator.SHOPPING_CART_LABEL)
+
+  def click_product_cart(self):
+    self.click(ProductsPageLocator.SHOPPING_CART_ITEM)

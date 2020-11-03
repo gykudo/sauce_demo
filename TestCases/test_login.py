@@ -7,7 +7,6 @@ from Pages.login_page import LoginPage
 from Pages.products_page import ProductsPage
 from TestData.TestData import TestData
 from Objects.account import Account
-from Locators.products_page_locator import ProductPageLocator
 
 
 class TestLogin(BaseTest):

@@ -2,7 +2,6 @@ import unittest
 import logging
 
 
-
 class Assertion(unittest.TestCase):
   def compare_product_info(self, actual_product, expected_product):
     msg = "Actual: '{}', Expected: '{}'"
@@ -20,6 +19,4 @@ class Assertion(unittest.TestCase):
       self.assertEqual(actual_product.price, expected_product.price)
     except AssertionError:
       logging.error(msg.format(actual_product.price, expected_product.price))
-
-
-
+    pass
