@@ -8,8 +8,10 @@ from TestCases.base_test import BaseTest
 from Pages.products_page import ProductsPage
 from Pages.cart_page import CartPage
 from Pages.checkout_info_page import CheckoutInfoPage
+from Pages.checkout_overview_page import CheckoutOverViewPage
 from TestData.TestData import TestData
 from Utils.assertion import Assertion
+from Utils.utility import Utils
 from Pages.login_page import LoginPage
 
 
@@ -37,11 +39,20 @@ class TestProduct02(BaseTest):
       expected_product = products[index - 1]
       assertion = Assertion()
       assertion.compare_product_info(actual_product, expected_product)
+      total_price = cart_page.get_price(index)
 
     cart_page.click_checkout_button()
     checkout_info_page = CheckoutInfoPage(self.driver)
     checkout_info_page.input_checkout_info('Ryan', 'Tu', '700000')
     checkout_info_page.click_continue_button()
+
+    checkout_over = CheckoutOverViewPage(self.driver)
+    for index in [1, 2, 3]:
+      actual_product = checkout_over.get_product_overview_info(index)
+      expected_product = products[index - 1]
+      assertion = Assertion()
+      assertion.compare_product_info(actual_product, expected_product)
+    a
 
 if __name__ == "__main__":
   unittest.main()

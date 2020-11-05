@@ -1,5 +1,4 @@
 from Locators.checkout_information_locator import CheckoutInforLocator
-from Objects.checkoutinfo import CheckoutInfo
 from Pages.base_page_object import BasePage
 
 

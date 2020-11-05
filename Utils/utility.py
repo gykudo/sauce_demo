@@ -5,4 +5,5 @@ class Utils:
     try:
       return float(re.findall("\d+\.\d+", string)[0])
     except Exception:
-      return 0
+      return 0.00
+

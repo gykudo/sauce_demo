@@ -1,6 +1,7 @@
 from Locators.cart_page_locator import CartPageLocator
 from Objects.product import Product
 from Pages.base_page_object import BasePage
+from Utils.utility import Utils
 
 
 class CartPage(BasePage):
@@ -23,5 +24,10 @@ class CartPage(BasePage):
 
   def remove_product_from_cart(self, index):
     self.click(CartPageLocator.PRODUCT_REMOVE_BUTTON(index))
+
+  def get_price(self, index):
+    price_lbl = self.get_text(CartPageLocator.PRODUCT_PRICE_LABEL(index))
+    price = Utils.convert_string_to_float(price_lbl)
+    return float(price)
 
 
