@@ -18,22 +18,18 @@ class CheckoutOverViewPage(BasePage):
 
   def get_product_price(self):
     price_lbl = self.get_text(CheckoutOverviewLocator.TOTALITEMPRICE)
-    price = Utils.convert_string_to_float(price_lbl)
+    price = Utils.convert_string_to_float(self, price_lbl)
     return float(price)
 
   def get_tax(self):
     tax_lbl = self.get_text(CheckoutOverviewLocator.TAX)
-    tax = Utils.convert_string_to_float(tax_lbl)
+    tax = Utils.convert_string_to_float(self, tax_lbl)
     return float(tax)
 
   def get_total_price(self):
     total_price_lbl = self.get_text(CheckoutOverviewLocator.TOTALPRICE)
-    total_price = Utils.convert_string_to_float(total_price_lbl)
+    total_price = Utils.convert_string_to_float(self, total_price_lbl)
     return float(total_price)
 
-
-
-
-
-
-
+  def click_finish_button(self):
+    return self.click(CheckoutOverviewLocator.FINISH_BTN)

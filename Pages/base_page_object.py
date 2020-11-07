@@ -70,7 +70,6 @@ class BasePage(object):
     print('abc', element.is_displayed())
     return element.is_displayed()
 
-
   def is_invisible(self, by_locator):
     message = "Check the element with the locator '{}' is visible or not"
     logging.info(message.format(','.join(by_locator)))

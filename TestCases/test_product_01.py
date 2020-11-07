@@ -1,6 +1,5 @@
 import sys
 import unittest
-import os
 
 sys.path.append(".")
 
@@ -8,7 +7,6 @@ from TestCases.base_test import BaseTest
 from Pages.products_page import ProductsPage
 from TestData.TestData import TestData
 from Utils.assertion import Assertion
-from Objects.account import Account
 from Pages.login_page import LoginPage
 
 
@@ -17,7 +15,6 @@ class TestProduct01(BaseTest):
   def setUp(self):
     super().setUp()
 
-    #account = Account(TestData.USERNAME, TestData.PASSWORD)
     login_page = LoginPage(self.driver)
     login_page.login(TestData.USERNAME, TestData.PASSWORD)
 
@@ -41,6 +38,7 @@ class TestProduct01(BaseTest):
       actual_product = products_page.get_product_info(index)
       assertion = Assertion()
       assertion.compare_product_info(actual_product, expected_product)
+
 
 if __name__ == "__main__":
   unittest.main()
