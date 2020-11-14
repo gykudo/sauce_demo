@@ -6,4 +6,4 @@ class LoginPageLocators(object):
   INPUT_USERNAME = (By.ID, 'user-name')
   INPUT_PASSWORD = (By.ID, 'password')
   BUTTON_LOGIN = (By.ID, 'login-button')
-  ERR_MESS_LBL = (By.XPATH, '//div[@id="login_button_container"]//h3[@class="err-button"]')
+  ERR_MESS_LABEL = (By.XPATH, '//div[@id="login_button_container"]//h3[@class="err-button"]')

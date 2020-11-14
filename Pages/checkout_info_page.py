@@ -13,7 +13,7 @@ class CheckoutInfoPage(BasePage):
     self.enter_text(CheckoutInforLocator.POSTALCODE_TEXTBOX, postalcode)
 
   def click_continue_button(self):
-    self.click(CheckoutInforLocator.CONTINUE_BTN)
+    self.click(CheckoutInforLocator.CONTINUE_BUTTON)
 
   def click_cancel_button(self):
-    self.click(CheckoutInforLocator.CANCEL_BTN)
+    self.click(CheckoutInforLocator.CANCEL_BUTTON)

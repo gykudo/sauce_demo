@@ -1,20 +1,20 @@
 "user": [
-  {
-    "usernname": "standard_user",
-    "password": "secret_sauce"
-  },
-  {
-    "usernname": "locked_out_user",
-    "password": "secret_sauce"
-  },
-  {
-    "usernname": "problem_user",
-    "password": "secret_sauce"
-  },
-  {
-    "usernname": "performance_glich_user",
-    "password": "secret_sauce"
-  }
+{
+"usernname": "standard_user",
+"password": "secret_sauce"
+},
+{
+"usernname": "locked_out_user",
+"password": "secret_sauce"
+},
+{
+"usernname": "problem_user",
+"password": "secret_sauce"
+},
+{
+"usernname": "performance_glich_user",
+"password": "secret_sauce"
+}
 ]
 
 

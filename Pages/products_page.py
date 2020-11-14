@@ -7,6 +7,7 @@ class ProductsPage(BasePage):
 
   def __init__(self, driver):
     super().__init__(driver)
+    #products_page = ProductsPage(self.driver)
 
   def get_product_badge(self):
     total = 0
@@ -45,3 +46,6 @@ class ProductsPage(BasePage):
 
   def click_product_cart(self):
     self.click(ProductsPageLocator.SHOPPING_CART_ITEM)
+
+  def click_product_name(self, index):
+    self.click(ProductsPageLocator.PRODUCT_NAME_LABEL(index))

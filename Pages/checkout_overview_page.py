@@ -13,23 +13,23 @@ class CheckoutOverViewPage(BasePage):
     name = self.get_text(CheckoutOverviewLocator.PRODUCT_NAME_LABEL(index))
     desc = self.get_text(CheckoutOverviewLocator.PRODUCT_DESC_LABEL(index))
     price = self.get_text(CheckoutOverviewLocator.PRODUCT_PRICE_LABEL(index))
-    qty = self.get_text(CheckoutOverviewLocator.QTY_NUMBER_LABEL(index))
+    qty = self.get_text(CheckoutOverviewLocator.PRODUCT_QTY_LABEL(index))
     return Product(name, desc, price, qty)
 
   def get_product_price(self):
-    price_lbl = self.get_text(CheckoutOverviewLocator.TOTALITEMPRICE)
+    price_lbl = self.get_text(CheckoutOverviewLocator.TOTAL_ITEM_PRICE_LABEL)
     price = Utils.convert_string_to_float(self, price_lbl)
     return float(price)
 
   def get_tax(self):
-    tax_lbl = self.get_text(CheckoutOverviewLocator.TAX)
+    tax_lbl = self.get_text(CheckoutOverviewLocator.TAX_LABEL)
     tax = Utils.convert_string_to_float(self, tax_lbl)
     return float(tax)
 
   def get_total_price(self):
-    total_price_lbl = self.get_text(CheckoutOverviewLocator.TOTALPRICE)
+    total_price_lbl = self.get_text(CheckoutOverviewLocator.TOTAL_PRICE_LABEL)
     total_price = Utils.convert_string_to_float(self, total_price_lbl)
     return float(total_price)
 
   def click_finish_button(self):
-    return self.click(CheckoutOverviewLocator.FINISH_BTN)
+    return self.click(CheckoutOverviewLocator.FINISH_BUTTON)
